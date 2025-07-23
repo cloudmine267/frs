@@ -5,14 +5,14 @@ import { Eye, EyeOff, Lock, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { useAuth } from './AuthProvider'
+import { useLocalAuth } from './LocalAuthProvider'
 import { logActivity } from '@/lib/audit/auditLogger'
 
 export function LoginForm({ onSwitchToRegister }: { onSwitchToRegister: () => void }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
-  const { login, isLoading, error, clearError } = useAuth()
+  const { login, isLoading, error, clearError } = useLocalAuth()
 
   const handleSubmit = async () => {
     clearError()

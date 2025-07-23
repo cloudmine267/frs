@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { RegisterData, UserRole } from '@/types/auth'
-import { useAuth } from './AuthProvider'
+import { useLocalAuth } from './LocalAuthProvider'
 import { ENTITY_TYPES, REGULATORY_BODIES, USER_ROLES } from '@/lib/constants'
 import { logActivity } from '@/lib/audit/auditLogger'
 
@@ -25,7 +25,7 @@ export function RegisterForm({ onSwitchToLogin }: { onSwitchToLogin: () => void 
     regulatoryBody: ''
   })
   const [showPassword, setShowPassword] = useState(false)
-  const { register, isLoading, error, clearError } = useAuth()
+  const { register, isLoading, error, clearError } = useLocalAuth()
 
   const handleInputChange = (field: keyof RegisterData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }))
