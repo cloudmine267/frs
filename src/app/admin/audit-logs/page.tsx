@@ -19,9 +19,9 @@ export default function AuditLogsPage() {
 
   const filteredLogs = logs.filter(
     log =>
-      log.description.toLowerCase().includes(search.toLowerCase()) ||
-      log.type.toLowerCase().includes(search.toLowerCase()) ||
-      log.userId.toLowerCase().includes(search.toLowerCase())
+      (log.description ?? '').toLowerCase().includes(search.toLowerCase()) ||
+      (log.type ?? '').toLowerCase().includes(search.toLowerCase()) ||
+      (log.userId ?? '').toLowerCase().includes(search.toLowerCase())
   );
 
   return (
